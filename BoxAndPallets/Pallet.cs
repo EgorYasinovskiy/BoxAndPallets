@@ -7,6 +7,11 @@ namespace BoxAndPallets
 		private List<Box> _innerBoxes;
 		public ReadOnlyCollection<Box> InnerBoxes { get => _innerBoxes.AsReadOnly(); }
 		private int _weight;
+
+		public Pallet(int id, int widht, int lenght, int height, int weight) : base(id, widht, lenght, height, weight)
+		{
+		}
+
 		public override int GetVolume()
 		{
 			return base.GetVolume() + _innerBoxes.Sum(x => x.GetVolume());

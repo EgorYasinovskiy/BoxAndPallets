@@ -1,10 +1,15 @@
-﻿namespace BoxAndPallets
+﻿using System.Net;
+using System.Runtime.InteropServices;
+
+namespace BoxAndPallets
 {
 	public class Program
 	{
+		private List<Pallet> _pallets;
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello, World!");
 		}
+
+		public void Create()
 	}
 }
