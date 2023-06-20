@@ -9,6 +9,7 @@ namespace BoxAndPallets
 
 		public Pallet(int id, int widht, int lenght, int height) : base(id, widht, lenght, height, 30)
 		{
+			_innerBoxes= new List<Box>();
 		}
 
 		public override int GetVolume()

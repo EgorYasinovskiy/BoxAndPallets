@@ -21,8 +21,10 @@ namespace Tests
 		{
 			var box = new Box(new DateOnly(2022, 06, 20), 1, 3, 5, 7, 10);
 			var box2 = new Box(new DateOnly(2022, 06, 20), 1, 11, 5, 7, 10);
-			var pallet = new Pallet(1, 11, 13, 17);
-			Assert.AreEqual(pallet.GetVolume(), 11 * 13 * 17 + box.GetVolume() + box2.GetVolume());
+			var pallet = new Pallet(1, 20, 20, 1);
+			pallet.TryAddBox(box);
+			pallet.TryAddBox(box2);
+			Assert.AreEqual(pallet.GetVolume(), 400 + box.GetVolume() + box2.GetVolume());
 		}
 
 		[Test]
@@ -59,7 +61,9 @@ namespace Tests
 		{
 			var box = new Box(new DateOnly(2022, 06, 20), 1, 3, 5, 7, 35);
 			var box2 = new Box(new DateOnly(2022, 06, 20), 1, 11, 5, 7, 65);
-			var pallet = new Pallet(1, 11, 13, 17);
+			var pallet = new Pallet(1, 100, 100, 100);
+			pallet.TryAddBox(box);
+			pallet.TryAddBox(box2);
 			Assert.AreEqual(pallet.Weight, 130);
 		}
 
