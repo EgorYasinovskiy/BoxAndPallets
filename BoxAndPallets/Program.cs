@@ -39,7 +39,7 @@ namespace BoxAndPallets
 			}
 			else
 			{
-				_boxes.Add(new Box(null,date, int.Parse(parameters[0]), int.Parse(parameters[2]), int.Parse(parameters[1]), int.Parse(parameters[3]), int.Parse(parameters[1])));
+				_boxes.Add(new Box(null, date, int.Parse(parameters[0]), int.Parse(parameters[2]), int.Parse(parameters[1]), int.Parse(parameters[3]), int.Parse(parameters[1])));
 			}
 			
 			
