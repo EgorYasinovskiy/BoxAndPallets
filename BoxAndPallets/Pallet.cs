@@ -6,9 +6,8 @@ namespace BoxAndPallets
 	{
 		private List<Box> _innerBoxes;
 		public ReadOnlyCollection<Box> InnerBoxes { get => _innerBoxes.AsReadOnly(); }
-		private int _weight;
 
-		public Pallet(int id, int widht, int lenght, int height, int weight) : base(id, widht, lenght, height, weight)
+		public Pallet(int id, int widht, int lenght, int height) : base(id, widht, lenght, height, 30)
 		{
 		}
 
@@ -20,30 +19,26 @@ namespace BoxAndPallets
 		{
 			get
 			{
-				return _weight + _innerBoxes.Sum(x => x.Weight);
-			}
-			set
-			{
-				_weight = value;
+				return base.Weight + _innerBoxes.Sum(x => x.Weight);
 			}
 		}
 		public DateOnly? ShelfLife
 		{
 			get
 			{
-				return _innerBoxes.Any() ? _innerBoxes.Min(x=>x.ShelfLife) : null;
+				return _innerBoxes.Any() ? _innerBoxes.Min(x => x.ShelfLife) : null;
 			}
 		}
-		public void AddBox(Box box)
+		public bool TryAddBox(Box box)
 		{
 			if (box.Lenght <= this.Lenght && box.Widht <= this.Widht)
 			{
 				_innerBoxes.Add(box);
+				return true;
 			}
-			else
-			{
-				Console.WriteLine("Box is too big for this pallete");
-			}
+			Console.WriteLine("Box is too big for this pallete");
+			return false;
+
 		}
 		public Box PopBox(int id)
 		{

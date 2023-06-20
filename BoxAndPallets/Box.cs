@@ -14,7 +14,7 @@
 
 		public Box() : base() { }
 
-		public Box(DateOnly? produced,int id, int widht, int lenght, int height, int weight) : base(id, widht, lenght, height, weight)
+		public Box(DateOnly produced,int id, int widht, int lenght, int height, int weight) : base(id, widht, lenght, height, weight)
 		{
 			Produced = produced;
 		}
